@@ -19,9 +19,22 @@ namespace AppMVC.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+            var participantes = from nome in _context.Participantes select nome;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                participantes = participantes.Where(n => n.Nome.Contains(searchString));
+            }
+
             return View(await _context.Participantes.ToListAsync());
+        }
+
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "Paticipante" + searchString;
         }
 
         public async Task<IActionResult> Details(string id)
