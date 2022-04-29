@@ -9461,11 +9461,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ViniciusGomes\\source\\repos\\AppMVC\\AppMVC.csproj",
+      "projectUniqueName": "C:\\Users\\ViniciusGomes\\Source\\Repos\\C_MVC\\AppMVC.csproj",
       "projectName": "AppMVC",
-      "projectPath": "C:\\Users\\ViniciusGomes\\source\\repos\\AppMVC\\AppMVC.csproj",
+      "projectPath": "C:\\Users\\ViniciusGomes\\Source\\Repos\\C_MVC\\AppMVC.csproj",
       "packagesPath": "C:\\Users\\ViniciusGomes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ViniciusGomes\\source\\repos\\AppMVC\\obj\\",
+      "outputPath": "C:\\Users\\ViniciusGomes\\Source\\Repos\\C_MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9541,7 +9541,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

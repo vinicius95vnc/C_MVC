@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<Context>
-    (options => options.UseSqlServer("Data Source=OdysseyGamer;Initial Catalog=DB_MVC;User ID=Vinicius;Password=vnc12345"));
+    (options => options.UseSqlServer(builder.Configuration.GetConnectionString("Context")));
 
 var app = builder.Build();
 

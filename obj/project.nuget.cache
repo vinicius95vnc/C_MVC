@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jl+H1ATLoN0jFrXvpTM9PzQHZV4z/++8Vsrk60g9ZaEI7kiGRsI5gf3g01DriG0YMfABz6rSWVFQWA1uzvKjkg==",
+  "dgSpecHash": "awfWXtl8SJpJivjo8frnxhWtN2cwAzcY2mZ2otXpl9PH8iLBMt5qyaG9lawGzRPwpKXTtpZwyDo7NnRGsVpHeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ViniciusGomes\\source\\repos\\AppMVC\\AppMVC.csproj",
+  "projectFilePath": "C:\\Users\\ViniciusGomes\\source\\repos\\C_MVC\\AppMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ViniciusGomes\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ViniciusGomes\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
