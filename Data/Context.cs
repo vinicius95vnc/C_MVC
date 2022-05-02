@@ -4,7 +4,7 @@ using AppMVC.Models;
 
 namespace AppMVC.Data
 {
-    public class Context : DbContext
+    public class Context : IdentityDbContext
     {
         public Context(DbContextOptions<Context> options)
             : base(options)

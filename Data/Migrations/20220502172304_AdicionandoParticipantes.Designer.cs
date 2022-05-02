@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppMVC.Data.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220502153137_MigrationInicial")]
-    partial class MigrationInicial
+    [Migration("20220502172304_AdicionandoParticipantes")]
+    partial class AdicionandoParticipantes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

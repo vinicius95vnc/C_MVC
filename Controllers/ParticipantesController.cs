@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AppMVC.Controllers
 {
-    
+    [Authorize]
     public class ParticipantesController : Controller
     {
         private readonly Context _context;
