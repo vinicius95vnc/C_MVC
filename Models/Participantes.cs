@@ -7,20 +7,24 @@ namespace AppMVC.Models
     public class Participantes
     {
         [Key]
-        [Column ("CodPar")]
-        [Display(Name = "CodPar")]
-        public string CodPar { get; set; }
+        [Column("CodPar")]
+        [Display(Name = "Identificação")]
+        public string? CodPar { get; set; }
 
-        [Column ("Nome")]
-        [Display (Name = "Nome")]
-        public string Nome { get; set; } 
-        
-        [Column ("DataNascimento")]
-        [Display(Name = "DataNascimento")]
-        public DateTime DataNascimento { get; set; }
+        [Column("Nome")]
+        [Display(Name = "Nome")]
+        public string? Nome { get; set; }
 
-        [Column ("Telefone")]
-        [Display (Name = "Telefone")]
-        public string Telefone {  get; set; }
+        [Column("DataCriação")]
+        [Display(Name = "Data Criação")]
+        public DateTime DataCriacao { get; set; } = DateTime.Now;
+
+        [Column("DataAtualização")]
+        [Display(Name = "Data Atualização")]
+        public DateTime DataAtualizacao { get; set; } = DateTime.Now;
+
+        [Column("Telefone")]
+        [Display(Name = "Telefone")]
+        public string? Telefone { get; set; }
     }
 }

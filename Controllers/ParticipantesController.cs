@@ -1,15 +1,12 @@
-﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AppMVC.Models;
+using AppMVC.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using AppMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AppMVC.Controllers
 {
+    
     public class ParticipantesController : Controller
     {
         private readonly Context _context;
@@ -61,7 +58,7 @@ namespace AppMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CodPar,Nome,DataNascimento,Telefone")] Participantes participantes)
+        public async Task<IActionResult> Create([Bind("CodPar,Nome,DataCriacao,UltimaAtualizacao,Telefone")] Participantes participantes)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +86,7 @@ namespace AppMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CodPar,Nome,DataNascimento,Telefone")] Participantes participantes)
+        public async Task<IActionResult> Edit(string id, [Bind("CodPar,Nome,DataCriacao,UltimaAtualizacao,Telefone")] Participantes participantes)
         {
             if (id != participantes.CodPar)
             {
