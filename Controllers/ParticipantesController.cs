@@ -25,25 +25,33 @@ namespace AppMVC.Controllers
                 participantes = participantes.Where(n => n.Nome.Contains(searchString));
             }
 
-            return View(await _context.Participantes.ToListAsync());
+            return View(await _context.Participantes
+                .AsNoTracking()
+                .Where(x => x.Usuario == User.Identity.Name)
+                .ToListAsync());
         }
 
         [HttpPost]
         public string Index(string searchString, bool notUsed)
         {
-            return "Paticipante" + searchString;
+            return "Participante" + searchString;
         }
 
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
-                return NotFound();
+                 return NotFound();
             }
 
             var participantes = await _context.Participantes
                 .FirstOrDefaultAsync(m => m.CodPar == id);
             if (participantes == null)
+            {
+                return NotFound();
+            }
+
+            if (participantes.Usuario != User.Identity.Name)
             {
                 return NotFound();
             }
@@ -58,10 +66,11 @@ namespace AppMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CodPar,Nome,DataCriacao,UltimaAtualizacao,Telefone")] Participantes participantes)
+        public async Task<IActionResult> Create([Bind("CodPar,Nome,DataCriacao,UltimaAtualizacao,Telefone,Usuario")] Participantes participantes)
         {
             if (ModelState.IsValid)
             {
+                participantes.Usuario = User.Identity.Name;
                 _context.Add(participantes);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -81,12 +90,18 @@ namespace AppMVC.Controllers
             {
                 return NotFound();
             }
+
+            if (participantes.Usuario != User.Identity.Name)
+            {
+                return NotFound();
+            }
+
             return View(participantes);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CodPar,Nome,DataCriacao,UltimaAtualizacao,Telefone")] Participantes participantes)
+        public async Task<IActionResult> Edit(string id, [Bind("CodPar,Nome,Telefone")] Participantes participantes)
         {
             if (id != participantes.CodPar)
             {
@@ -97,6 +112,8 @@ namespace AppMVC.Controllers
             {
                 try
                 {
+                    participantes.Usuario = User.Identity.Name;
+                    participantes.DataAtualizacao = DateTime.Now;
                     _context.Update(participantes);
                     await _context.SaveChangesAsync();
                 }
@@ -113,6 +130,12 @@ namespace AppMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            if (participantes.Usuario != User.Identity.Name)
+            {
+                return NotFound();
+            }
+
             return View(participantes);
         }
 
@@ -126,6 +149,11 @@ namespace AppMVC.Controllers
             var participantes = await _context.Participantes
                 .FirstOrDefaultAsync(m => m.CodPar == id);
             if (participantes == null)
+            {
+                return NotFound();
+            }
+
+            if (participantes.Usuario != User.Identity.Name)
             {
                 return NotFound();
             }

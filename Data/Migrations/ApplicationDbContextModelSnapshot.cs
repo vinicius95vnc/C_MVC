@@ -44,6 +44,11 @@ namespace AppMVC.Data.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Telefone");
 
+                    b.Property<string>("Usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Usuario");
+
                     b.HasKey("CodPar");
 
                     b.ToTable("Participantes");
